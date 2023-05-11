@@ -7,10 +7,9 @@ The Soccer App is an API-based application. It allows admin to manage teams and 
 - Laravel v10.x+
 
 ## Steps to Install
-1. Open Cmd in folder you want to install project in..
-2. Type below Command and hit enter...
-3. git clone https://github.com/usernam/projectname.git
-4. Then cd into folder using below Command
+1. Open Cmd in folder you want to install project in.
+2. git clone https://github.com/usernam/projectname.git
+3. Then cd into folder using below Command
     - cd projectname
 
 ## Install All Composer Dependencies
