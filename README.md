@@ -13,7 +13,7 @@ The Soccer App is an API-based application. It allows admin to manage teams and 
 1. Use below command to install all dependencies then wait till all process is complete...
     - composer install or composer update.
 
-##Create a .env file
+## Create a .env file
 Duplicate .env.example as .env file
 Fill information of your DB username and password & other info if needed...
 
