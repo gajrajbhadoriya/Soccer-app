@@ -27,13 +27,16 @@ Fill information of your DB username and password & other info if needed...
 ## DataBase Structure
 NOTE: I recommend to import DB structure Using php artisan method but you can use .sql file to import if you want.
 
-1. Use below Command and wait till all migrations complete...
+### Use below Command and wait till all migrations complete...
     - php artisan migrate
-2. Use below Command to Link Storage to Public folder
+### Use below Command to Link Storage to Public folder
     - php artisan storage:link
-3. Generate the application Key: php artisan key:generate
-4. Run database Migrations: php artisan migrate
-5. start development server: php artisan serve
+### Generate the application Key:
+    - php artisan key:generate
+### Run database Migrations: 
+    - php artisan migrate
+### start development server:
+    -php artisan serve
 
 
 
