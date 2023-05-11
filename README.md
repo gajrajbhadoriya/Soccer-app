@@ -17,7 +17,7 @@ The Soccer App is an API-based application. It allows admin to manage teams and 
     - composer install or composer update.
 
 ## Create a .env file
-Duplicate .env.example as .env file
+### Duplicate .env.example as .env file
     - cp .env.example .env
 Fill information of your DB username and password & other info if needed...
 
