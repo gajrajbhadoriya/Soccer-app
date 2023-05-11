@@ -27,6 +27,12 @@ NOTE: I recommend to import DB structure Using php artisan method but you can us
 - php artisan migrate
 2.Use below Command to Link Storage to Public folder
 - php artisan storage:link
+3. Generate the application Key:
+    - php artisan key:generate
+4.Run database Migrations
+    - php artisan migrate
+5.start development server
+    - php artisan serve
 
 
 
