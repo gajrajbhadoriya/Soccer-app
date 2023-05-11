@@ -4,8 +4,8 @@ The Soccer App is an API-based application. It allows admin to manage teams and 
 
 ## Installation
 1. git clone https://github.com/gajrajbhadoriya/soccer-app.git
-2. Install dependencies using Composer run composer 
-- install or composer update
+2. Install dependencies using Composer run in cmd
+- composer install or composer update
 
 
 
