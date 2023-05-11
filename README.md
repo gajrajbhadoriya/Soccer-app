@@ -3,8 +3,8 @@
 The Soccer App is an API-based application. It allows admin to manage teams and players for a soccer league. the app provides functionality for CRUD operations on teams and players.
 
 ## Dependencies
-php version 8.0x+
-Laravel v10.x+
+- php version 8.0x+
+- Laravel v10.x+
 
 ## Steps to Install
 1. Open Cmd in folder you want to install project in..
