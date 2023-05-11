@@ -35,8 +35,8 @@ NOTE: I recommend to import DB structure Using php artisan method but you can us
     - php artisan key:generate
 ### Run database Migrations: 
     - php artisan migrate
-### start development server:
-    -php artisan serve
+### Start development server:
+    - php artisan serve
 
 
 
