@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\TeamController;
 use Illuminate\Http\Request;
@@ -16,29 +17,33 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
 
 /**
  * its teams Apis
  */
-Route::post('/teams', [TeamController::class, 'store']);
 Route::get('/teams', [TeamController::class, 'index']);
 Route::get('/teams/{team_id}', [TeamController::class, 'show']);
-Route::put('/teams/{id}', [TeamController::class, 'update']);
-Route::delete('/teams/{id}', [TeamController::class, 'destroy']);
 // Route::resource('/teams',PlayerController::class);
 
 /**
  * its Player Apis
  */
 
-Route::post('/players', [PlayerController::class, 'store']);
 Route::get('/players', [PlayerController::class, 'index']);
 Route::get('/players/{player_id}', [PlayerController::class, 'show']);
-Route::put('/players/{id}', [PlayerController::class, 'update']);
-Route::delete('/players/{id}', [PlayerController::class, 'destroy']);
-Route::get('/players/teams/{id}',[PlayerController::class, 'teamsPlayer']);
+Route::get('/players/teams/{id}', [PlayerController::class, 'teamsPlayer']);
 // Route::resource('/players/{id}',PlayerController::class);
 
+Route::group(['middleware' => ['auth:sanctum', 'App\Http\Middleware\AdminAuth']], function () {
+    Route::put('/teams/{id}', [TeamController::class, 'update']);
+    Route::delete('/teams/{id}', [TeamController::class, 'destroy']);
+    Route::post('/teams', [TeamController::class, 'store']);
+    Route::post('/players', [PlayerController::class, 'store']);
+    Route::put('/players/{id}', [PlayerController::class, 'update']);
+    Route::delete('/players/{id}', [PlayerController::class, 'destroy']);
+    Route::get('test-safe', [TeamController::class, 'testSafe']);
+});
+
+Route::get('unauth-response', [TeamController::class, 'unauthResponse'])->name('login');
