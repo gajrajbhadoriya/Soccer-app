@@ -9,12 +9,6 @@ use Illuminate\Support\Facades\Validator;
 
 class TeamController extends Controller
 {
-    private $team;
-    public function __construct($team)
-    {
-        $this->team = $team;
-    }
-
     public function unauthResponse()
     {
         return response()->json([
@@ -105,48 +99,29 @@ class TeamController extends Controller
     /**
      * With the update function you can update the data of single teams
      */
-    // public function update(Request $request, Team $id)
-    // {
-    //     $validator = validator()->make($request->all(), [
-    //         'name'      => 'required',
-    //         'logo'      => 'nullable|image|max:2048'
-    //     ]);
-
-    //     if ($validator->fails()) {
-    //         $errors = $validator->errors();
-    //         return response()->json([
-    //             'status'        => false,
-    //             'errors'        => $errors,
-    //             'data'          => []
-    //         ], 422);
-    //     }
-
-    //     $id->update($request->all());
-
-    //     return response()->json([
-    //         'status'    => true,
-    //         'data'      => $id
-    //     ]);
-    // }
-
-    public function update(Request $request)
+    public function update(Request $request, Team $id)
     {
-        $validator = Validator::make($request->all(), [
+        $validator = validator()->make($request->all(), [
             'name'      => 'required',
             'logo'      => 'nullable|image|max:2048'
         ]);
-        if ($validator->fails()) {
-            $error = $validator->errors()->first();
-            return response()->json([
-                'status' => false,
-                'message' => $error
-            ], 400);
-        }
-        $name = $request->name;
-        $logo = $request->logo;
-        return $this->team->update($name, $logo)->response()->json();
-    }
 
+        if ($validator->fails()) {
+            $errors = $validator->errors();
+            return response()->json([
+                'status'        => false,
+                'errors'        => $errors,
+                'data'          => []
+            ], 422);
+        }
+
+        $id->update($request->all());
+
+        return response()->json([
+            'status'    => true,
+            'data'      => $id
+        ]);
+    }
 
     /**
      * Remove the specified resource from storage.
